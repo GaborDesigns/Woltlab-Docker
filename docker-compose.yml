@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  gabox-apache:
+    build:
+        context: .
+        dockerfile: Dockerfile
+    container_name: gabox-apache
+    #restart: always
+    volumes:
+      - "./config/apache2:/etc/apache2"
+      - "./www/html:/var/www/html"
+    ports:
+      - "80:80"
+    links:
+      - gabox-mysql
+
+  gabox-mysql:
+    image: mysql
+    container_name: gabox-mysql
+    # restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysql
+    command: "--default-authentication-plugin=mysql_native_password"
+
+  gabox-phpmyadmin:
+    image: phpmyadmin
+    container_name: gabox-phpmyadmin
+    # restart: always
+    ports:
+      - "8080:80"
+    environment:
+      - PMA_ARBITRARY=1
+    links:
+      - gabox-mysql
