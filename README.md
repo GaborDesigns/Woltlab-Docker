@@ -1,4 +1,14 @@
-<div style="background-color: #3a6d9c; margin: 0; padding: 20px; width: 100%; height: 400px">
+<style>
+  .header {
+    background-color: #3a6d9c; 
+    margin: 0; 
+    padding: 20px; 
+    width: 100%; 
+    height: 400px;
+  }
+</style>
+
+<div class="header">
   <img src="https://www.woltlab.com/images/default-logo-small.png" style="display: block;margin: 0 auto;">
 </div>
 
