@@ -29,7 +29,7 @@ services:
     ports:
       - '${APACHE_PORT}:80'
     links:
-      - mysql
+      - ${CONTAINER_NAME}mysql
 
   ${CONTAINER_NAME}-mysql:
     image: mysql
@@ -64,7 +64,7 @@ mkdir $DIR;
 
 # Download Woltlab Suite Core
 echo "Downloading Woltlab Suite Core ...";
-wget -O $DIR/woltlab.zip https://assets.woltlab.com/release/woltlab-suite-$WSC_VERSION.zip;
+wget -O $DIR/woltlab.zip https://assets.woltlab.com/release/woltlab-suite-$WOLTLAB_VERSION.zip;
 unzip $DIR/woltlab.zip -d $DIR
 
 # Move to NGINX public directory
